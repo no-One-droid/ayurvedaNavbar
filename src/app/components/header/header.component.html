@@ -1,0 +1,84 @@
+<!-- <section>
+    <div class="container-fluid">
+        <div class="row">
+           <div class="Anoucement_bar ">
+                <p class="Anoucement_content">
+                    FREE Shipping for all orders over €100 and just a reminder, all our deliveries are carbon neutral
+                </p>
+           </div>
+        </div>
+    </div>
+</section> -->
+<nav id="main-navbar" class="navbar navbar-expand-xl  navbar-before-scroll shadow-0">
+    <button class="navbar-toggler toggler-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span nz-icon nzType="menu-unfold" nzTheme="outline" style="font-size: 25px; color: #000;"></span>
+    </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item" *ngFor="let item of menuItems">
+                    <a class="nav-link" 
+                    (mouseenter)="onMouseEnter(item.title)"
+                    (mouseleave)="onMouseLeave()"
+                    [class.dropdown-toggle]="onHoveredItem === item.title"
+                    >
+                        {{item.title}}
+                    </a>
+                    <div 
+                        class="dropdown-menu p-4"
+                        *ngIf="onHoveredItem === item.title"
+                        (mouseenter)="onMouseEnter(item.title)"
+                        (mouseleave)="onMouseLeave()"
+                    >
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-3 dropdown-content" *ngFor="let category of item.categories">
+                                    <a href="#" class="dropdown-item">{{ category.name }}</a>
+                                    <ul class="list-unstyled" *ngFor="let item of category.subcategories">
+                                        <li class="dropdown-item">{{item}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>  
+            </ul>
+        </div>
+
+        <div class="position-absolute start-50 translate-middle-x">
+            <img src="../../../assets/logo-01_115x.png" alt="">
+        </div>
+
+        <div class="d-flex">
+            <button class="btn  me-2 nav-btn" type="button">
+                <span nz-icon nzType="search" nzTheme="outline"></span>
+            </button>
+            <button class="btn nav-btn" type="button">
+                <span nz-icon nzType="shopping-cart" nzTheme="outline"></span>
+            </button>
+        </div>
+</nav>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas-header">
+        <button type="button" class=" btn close-btn" data-bs-dismiss="offcanvas" aria-label="Close">
+            <span nz-icon nzType="close" nzTheme="outline"></span>
+        </button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Deals</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">New Arrivals</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Packages</a>
+            </li>
+        </ul>
+    </div>
+</div>
